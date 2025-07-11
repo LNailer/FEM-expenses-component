@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--base-font);
+}
+
+:root {
+  --base-font: "DM Sans", sans-serif;
+
+  /* Colours*/
+  --hover-dark-brown: hsl(25, 47%, 15%); /* Hover pop ups + key text */
+  --text-medium-brown: hsl(28, 10%, 53%); /* Labels + minor text */ 
+  --page-bg-cream: hsl(27, 66%, 92%); /* Page background */
+  --body-bg-very-pale-orange: hsl(33, 100%, 98%); /* Body bg + header text */ 
+  --bars-red: hsl(10, 79%, 65%); /* Bars */
+  --today-cyan: hsl(186, 34%, 60%); /* Bar for today's day */
+  --muted-red-bar: hsla(10, 79%, 65%, 0.7); /* Bars on hover */
+  --muted-cyan-bar: hsla(186, 34%, 60%, 0.7); /* Today on hover */
+
+  --ff-base: DMSans, sans-serif;
+  --fw-regular: 400;
+  --fw-bold: 500;
+  --fw-bolder: 600;
+
+  /* smaller text font sizes */
+  --fs-small: .85rem;
+  --fs-smaller: .75rem;  
+
+  /* Padding that goes around header and body component should be the same. Corner radii should also be same. */
+  --component-padding: 1.3rem;
+  --component-padding-sides: 1.9rem;
+  --component-corners: 0.8rem;
+  --hover-corners: 0.3rem;
+
+  /* Guide border width. 2px on or 0px to turn off - just here to diagnose any layout issues */
+  --guide-width: 0.0px;
+}
+
+body {
+  font-size: 18px;
+  background-color: var(--page-bg-cream);
+}
+
+.expenses-component {
+  margin: auto;
+  margin-top: 2rem;
+  width: 450px;
+  border-radius: var(--component-corners);
+  padding: var(--component-padding);
+}
+
+.header-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: var(--component-padding);
+  padding-left: var(--component-padding-sides);
+  padding-right: var(--component-padding-sides);
+  background-color: var(--bars-red);
+  border-radius: var(--component-corners);
+}
+.header-left {
+  color: var(--body-bg-very-pale-orange);
+}
+.header-left-label {
+  font-size: var(--fs-small);
+}
+.balance-amount {
+  padding-top: .5rem;
+  font-size: 1.6rem;
+  font-weight: var(--fw-bold);
+}
+.header-right {
+  display: grid;
+  justify-items: end;
+  align-items: center;
+}
+.logo > img {
+  height: 2.3rem;
+  width: auto;
+}
+
+.body-block {
+  display: grid;
+  grid-template-rows: auto 250px auto auto;
+  row-gap: 6px;
+  padding: var(--component-padding);
+  padding-left: var(--component-padding-sides);
+  padding-right: var(--component-padding-sides);
+  margin-top: 0.8rem;
+  color: var(--hover-dark-brown);
+  background-color: var(--body-bg-very-pale-orange);
+  border-radius: var(--component-corners);
+}
+
+.body-header-text {
+  font-size: 1.6rem;
+  font-weight: var(--fw-bolder);
+}
+#dynamic-bar-chart {
+  border-radius: var(--component-corners);
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-size: var(--fs-smaller);
+  text-align: center;
+}
+#dynamic-bar-chart > div {
+  display: grid;
+  align-content: end;
+  justify-content: center;
+}
+.padding-div {
+  width: 50px;
+}
+.day-amount {
+  background-color: var(--hover-dark-brown);
+  color: var(--body-bg-very-pale-orange);
+  width: 50px;
+  padding: 5px 0 5px 0;
+  border-radius: var(--hover-corners);
+  display: none;
+}
+
+.bar:hover .day-amount {
+  display: block;
+}
+.day-amount:has(+ .show-amount) {
+  display: block;
+}
+
+.day-bar {
+  background-color: var(--bars-red);
+  /* height: 190px will be the tallest. JS will calculate + supply these. */
+  margin: 4px 4px 0 4px;
+  border-radius: var(--hover-corners);
+}
+.day-bar:hover {
+  background-color: var(--muted-red-bar);
+}
+.show-amount {
+  background-color: var(--muted-red-bar);
+}
+
+.bar:hover .day-bar {
+  display: block;
+}
+
+.today {
+  background-color: var(--today-cyan);
+}
+.today:hover {
+  background-color: var(--muted-cyan-bar);
+}
+.today.show-amount {
+  background-color: var(--muted-cyan-bar);
+}
+
+.fake-hr {
+  background-color: var(--page-bg-cream);
+  height: 2px;
+  margin: 0.3rem 0 0.3rem 0;
+}
+.body-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.footer-left-amount {
+  font-size: 2rem;
+  font-weight: var(--fw-bolder);
+}
+
+.footer-left-text {
+  color: var(--text-medium-brown);
+  font-size: var(--fs-small);
+}
+.body-footer-right {
+  display: grid;
+  align-content: center;
+  justify-items: end;
+}
+.footer-right-percentage-change {
+
+  font-size: var(--fs-small);
+  font-weight: var(--fw-bolder);
+}
+.footer-right-percentage-text {
+  font-size: var(--fs-small);
+  color: var(--text-medium-brown);
+}
+
+
+@media screen and (max-width: 450px) {
+  .expenses-component {
+    width: 320px;
+    padding: 0;
+    padding-top: var(--component-padding);
+  }
+
+  .body-header-text {
+    justify-self: center;
+    font-size: 1.3rem;
+    font-weight: var(--fw-bolder);
+  }
+  .padding-div {
+  width: 39px;
+  }
+  .day-amount {
+    font-size: 0.625rem;
+    width: 39px;
+  }
+
+  .footer-left-text {
+    font-size: 0.7rem;
+  }
+
+  .footer-left-amount {
+    font-size: 1.6rem;
+    font-weight: var(--fw-bolder);
+  }
+
+  .footer-right-percentage-text {
+    justify-self: end;
+    text-align: right;
+    font-size: 0.7rem;
+  }
+}
