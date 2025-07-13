@@ -1,3 +1,5 @@
+// Create a 'today' variable that can be used for comparison against the 7
+// bars in the chart. This will be used in the renderBarChart() function.
 let today = getTodayShort();
 function getTodayShort() {
   const today = new Date();
@@ -5,7 +7,7 @@ function getTodayShort() {
   return lowerToday;
 }
 
-// fetch JSON from file
+// Fetch JSON from file.
 fetch("data.json")
   .then(res => res.json())
   .then(data => renderBarChart(data))
@@ -24,12 +26,6 @@ function renderBarChart(data) {
     const newElement = document.createElement('div');
     newElement.className = 'bar'; // Add class 'bar' for hover effect.
 
-    // Calculate the bar's height. The max height will be 190px
-    // for the highest amount. All the others a relative fraction
-    // of that.
-
-    // Set the id attribute
-    newElement.id = item.day + "ID";
     // If day is today, add 'today' class to bar. Otherwise no.
     // This class provides the teal colour styling.
     if (item.day === today) {
@@ -49,5 +45,3 @@ function renderBarChart(data) {
   });
 
 };
-
-
