@@ -237,4 +237,7 @@ body {
     text-align: right;
     font-size: 0.7rem;
   }
+  .acknowledgement {
+    width: 320px;
+  }
 }
