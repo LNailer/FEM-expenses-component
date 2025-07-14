@@ -47,6 +47,7 @@ body {
 .acknowledgement {
   margin: auto;
   margin-top: 2rem;
+  margin-bottom: 1.2rem;
   width: 450px;
   text-align: center;
   font-size: .9rem;
