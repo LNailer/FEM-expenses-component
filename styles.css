@@ -44,6 +44,17 @@ body {
   background-color: var(--page-bg-cream);
 }
 
+.acknowledgement {
+  margin: auto;
+  margin-top: 2rem;
+  width: 450px;
+  text-align: center;
+  font-size: .9rem;
+  color: var(--text-medium-brown);
+}
+.acknowledgement a{
+  color: var(--today-cyan);
+}
 .expenses-component {
   margin: auto;
   margin-top: 2rem;
