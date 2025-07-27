@@ -60,7 +60,7 @@ Header is done. Body still to go.
 ••••••• 02/07/2025 - (Wednesday) ••••••••
 I've got it to here now:
 
-[Work in progress image showing component styling complete except for the dynamic parts.](images/wip-notes/Prior-to-bars.png)
+[Work in progress image showing component styling complete except for the dynamic parts.](images/Prior-to-bars.png)
 
 So with this bit done, I've now Successfully styled all the non-dynamic elements of the component.
 That has taken 2.5 hours for the static CSS. I didn't specify if the 4 hour CSS budget covered both
